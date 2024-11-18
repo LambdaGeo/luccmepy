@@ -3,7 +3,7 @@ from pathlib import Path
 
 import geopandas as gpd
 
-from luccmepy import GeoLuccDataFrame, PotentialDNeighSimpleRule, SimpleVisualization
+from luccmepy import GeoLuccDataFrame, PotentialDNeighSimpleRule, SimpleVisualization,AllocationDSimpleOrdering
 
 import salabim as sim
 
@@ -39,6 +39,7 @@ env.output = sim.Store("output")
 p1 = PotentialDNeighSimpleRule()
 
 #CopyPotential()
+AllocationDSimpleOrdering()
 
 v1 = SimpleVisualization(plot_params={
         "column": "f",
@@ -47,6 +48,6 @@ v1 = SimpleVisualization(plot_params={
 
 
 
-env.run(till=3)
+env.run(till=100)
 
 

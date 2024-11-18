@@ -26,5 +26,6 @@ class SimpleVisualization (sim.Component):
             year = self.env.now()
             output = self.from_store(self.env.output)
             self.update(year, output.gdf) 
+            #self.update(year, self.env.cs) 
             self.hold(1)
             self.to_store (self.env.output, output) 

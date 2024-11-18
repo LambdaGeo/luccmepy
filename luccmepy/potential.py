@@ -6,6 +6,8 @@ class PotentialDNeighSimpleRule (sim.Component):
 
     def setup(self):
         
+
+        # talvez em outro lugar
         potential = sim.Component("potential")
         
         pcs = self.env.cs[["geometry"]].copy()
