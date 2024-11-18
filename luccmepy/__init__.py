@@ -1,4 +1,7 @@
 from .dataframe import GeoLuccDataFrame
+from .potential import PotentialDNeighSimpleRule
 
-__all__ = ["GeoLuccDataFrame"]
+from .visualization import SimpleVisualization
+
+__all__ = ["GeoLuccDataFrame","PotentialDNeighSimpleRule", "SimpleVisualization"]
 
