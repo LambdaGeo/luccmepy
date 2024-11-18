@@ -19,9 +19,13 @@ file_name = Path(__file__).parent / "data" / "cs_moju.zip"
 
 gdf = gpd.read_file(file_name)
 
+
+
 gldf = GeoLuccDataFrame(gdf, id_name='object_id_')
 
+print (gldf.head())
 
+'''
 env = sim.Environment()
 
 env.landUseTypes = ["f", "d", "o"]
@@ -51,3 +55,4 @@ v1 = SimpleVisualization(plot_params={
 env.run(till=100)
 
 
+'''
