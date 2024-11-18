@@ -18,14 +18,13 @@ class SimpleVisualization (sim.Component):
         self.ax.set_title(f'Map for {year}')  
 
         plt.draw()  # Desenha o gráfico na tela
-        plt.pause(0.1)  # Pausa para a atualização visual
+        plt.pause(0.01)  # Pausa para a atualização visual
 
 
     def process (self):
         while True:
             year = self.env.now()
-            output = self.from_store(self.env.output)
-            self.update(year, output.gdf) 
-            #self.update(year, self.env.cs) 
+            print(f"[Time {year} ] SimpleVisualization")
+            self.update(year, self.env.gdf) 
             self.hold(1)
-            self.to_store (self.env.output, output) 
+            

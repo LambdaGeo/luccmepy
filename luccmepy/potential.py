@@ -6,29 +6,16 @@ class PotentialDNeighSimpleRule (sim.Component):
 
     def setup(self):
         
-
-        # talvez em outro lugar
-        potential = sim.Component("potential")
-        
-        pcs = self.env.cs[["geometry"]].copy()
-        potential.gdf = pcs
-
-        self.to_store (self.env.output, potential)
-
-        self.env.cs.create_neighborhood()
+        self.env.gdf.create_neighborhood()
 
 
     def process(self):
         while True:
-            print(f"[Tempo {self.env.now()} ] Calculo de Potencial")
-            potential = self.from_store(self.env.output)
+            print(f"[Time {self.env.now()} ] PotentialDNeighSimpleRule")
 
             for lu in self.env.landUseTypes:
-                serie = self.env.cs.apply (lambda row: self.env.cs.neighs(row.name)[lu].mean(), axis=1)
-                potential.gdf[lu] = serie
+                self.env.gdf[lu+"_pot"] = self.env.gdf.apply (lambda r: self.env.gdf.neighs(r.name)[lu].mean(), axis=1)
             
-
-            self.to_store (self.env.output, potential) 
 
             self.hold(1)
 
