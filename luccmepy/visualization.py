@@ -23,7 +23,7 @@ class SimpleVisualization (sim.Component):
 
     def process (self):
         while True:
-            year = self.env.now()
+            year = self.env.now() + self.env.startTime
             print(f"[Time {year} ] SimpleVisualization")
             self.update(year, self.env.gdf) 
             self.hold(1)
