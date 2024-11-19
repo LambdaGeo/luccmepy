@@ -17,10 +17,7 @@ env.gdf = gpd.read_file(file_name)
 env.landUseTypes = ["f", "d", "o"]
 env.startTime = 2000
 env.endTime = 2004 
-
 env.cellarea = 1
-
-
 
 env.potential = PotentialDNeighSimpleRule()
 
