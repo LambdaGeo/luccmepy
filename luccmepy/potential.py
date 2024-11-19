@@ -16,12 +16,22 @@ class PotentialDNeighSimpleRule (sim.Component):
         ns = self.w_.neighbors[idx] 
         return self.env.gdf.loc[ns] 
 
+    def rule (self,values):
+        neighs = self.env.gdf.loc[values] 
+        new_values = {}
+        for lu in self.env.landUseTypes:
+            new_values[lu] = neighs[lu].mean()
+
+        return new_values
+
     def process(self):
         while True:
-            print(f"[Time {self.env.now()} ] PotentialDNeighSimpleRule")
+            year = self.env.now() + self.env.startTime
+            print(f"[Time {year} ] PotentialDNeighSimpleRule")
 
+            neighborhood_means = {key: self.rule(value) for key, value in self.w_.neighbors.items()}
             for lu in self.env.landUseTypes:
-                self.env.gdf[lu+"_pot"] = self.env.gdf.apply (lambda r: self.neighs(r.name)[lu].mean(), axis=1)
+                self.env.gdf[lu+"_pot"] = self.env.gdf.apply (lambda r: neighborhood_means[r.name][lu], axis=1)
             
 
             self.hold(1)
