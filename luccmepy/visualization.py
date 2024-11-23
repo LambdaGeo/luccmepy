@@ -1,6 +1,7 @@
 
 import salabim as sim
 import matplotlib.pyplot as plt
+import time
 
 class SimpleVisualization (sim.Component):
 
@@ -18,7 +19,8 @@ class SimpleVisualization (sim.Component):
         self.ax.set_title(f'Map for {year}')  
 
         plt.draw()  # Desenha o gráfico na tela
-        plt.pause(0.01)  # Pausa para a atualização visual
+        plt.pause(0.1)  # Pausa para a atualização visual
+        
 
 
     def process (self):
