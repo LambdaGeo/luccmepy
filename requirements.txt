@@ -3,3 +3,4 @@ pysal==24.7
 salabim==24.0.15
 greenlet==3.1.1
 pytest==8.3.3
+matplotlib==3.9.2

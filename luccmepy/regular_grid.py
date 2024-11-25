@@ -4,6 +4,18 @@ import geopandas as gpd
 import numpy as np
 from shapely.geometry import box
 
+
+def fill_regular_grid (gdf, attr, pattern, start_x=0, start_y=0):
+        w = 3
+        start_x = 5
+        start_y = 5
+        for i in range(w):
+            for j in range(w):
+                idx = f"{start_x + i}-{start_y + j}"
+                gdf.loc[idx,attr] = pattern[2-i][j]
+
+
+
 def create_regular_grid(gdf=None, bounds=None, dim=10, attrs={}, crs="EPSG:29902"):
     """
     Create a square grid that covers a GeoDataFrame area
