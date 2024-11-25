@@ -17,6 +17,7 @@ class Model(sim.Environment):
 
 
     def run (self, endTime=None):
+        print (f"running from {self.startTime} to {self.endTime}")
         if endTime:
             super().run(till=endTime-self.startTime)    
         else:
