@@ -1,7 +1,7 @@
 
 from luccmepy import Component, Model, PlotMap, create_regular_grid, fill_regular_grid
 
-from luccmepy.models.toys import GameOfLife
+from luccmepy.components.toys import GameOfLife
 
 from matplotlib.colors import ListedColormap
 

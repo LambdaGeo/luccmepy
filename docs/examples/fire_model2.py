@@ -1,7 +1,7 @@
 
 from luccmepy import Component, Model, PlotMap, create_regular_grid
 
-from luccmepy.models.toys import FireModelProb
+from luccmepy.components.toys import FireModelProb
 
 from matplotlib.colors import ListedColormap
 custom_cmap = ListedColormap(['green', 'red', 'brown'])
