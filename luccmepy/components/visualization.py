@@ -8,14 +8,14 @@ from luccmepy import Component
 
 class IPlotMap (Component):
 
-    def setup(self, plot_params):
+    def setup(self, plot_params, clear=True):
         # Criar uma figura para a animação        
         self.plot_params = plot_params
-
+        self.clear = clear
 
     def update(self, year, gdf):
-        
-        clear_output(wait=True)  # Limpa a saída do notebook para exibir apenas o gráfico atualizado
+        if self.clear: 
+            clear_output(wait=True)  # Limpa a saída do notebook para exibir apenas o gráfico atualizado
         ax = gdf.plot(**self.plot_params) 
         ax.set_title(f'Map for {year}')  
 
@@ -49,9 +49,6 @@ class PlotMap (Component):
         
 
 
-    def process (self):
-        while True:
-            year = self.env.now() + self.env.startTime
-            print(f"[Time {year} ] SimpleVisualization")
-            self.update(year, self.env.gdf) 
-            self.hold(1)
+    def execute (self):
+        year = self.env.now() 
+        self.update(year, self.env.gdf) 

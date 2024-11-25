@@ -32,5 +32,4 @@ class Component (sim.Component):
     def process(self):
             while True: 
                 self.execute() 
-
                 self.hold(self._hold)
