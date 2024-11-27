@@ -6,13 +6,13 @@ from shapely.geometry import box
 
 
 def fill_regular_grid (gdf, attr, pattern, start_x=0, start_y=0):
-        w = 3
-        start_x = 5
-        start_y = 5
+        w = len(pattern)
+        h = len(pattern[0])
         for i in range(w):
-            for j in range(w):
+            for j in range(h):
                 idx = f"{start_x + i}-{start_y + j}"
-                gdf.loc[idx,attr] = pattern[2-i][j]
+                #print ("loc", idx, "i-j", i, j)
+                gdf.loc[idx,attr] = pattern[w-i-1][j]
 
 
 
