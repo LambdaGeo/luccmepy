@@ -3,7 +3,7 @@ from shapely.geometry import Point
 import geopandas as gpd
 import numpy as np
 
-from luccmepy.regular_grid import fill_regular_grid
+
 
 def fill_zonal_stats(vectors, raster_data, affine, stats, prefix="attr_", nodata=-999):
     """
@@ -52,7 +52,5 @@ def fill (strategy, **kwargs):
         fill_zonal_stats(**kwargs)
     elif strategy == "min_distance":
         fill_min_distance(**kwargs)
-    elif strategy == "pattern":
-        fill_regular_grid(**kwargs)
     else:
         raise ValueError(f"Estratégia desconhecida: {strategy}")
