@@ -3,8 +3,6 @@ from shapely.geometry import Point
 import geopandas as gpd
 import numpy as np
 
-
-
 def fill_zonal_stats(vectors, raster_data, affine, stats, prefix="attr_", nodata=-999):
     """
     Preenche atributos em `vectors` usando estatísticas zonais de um raster.
