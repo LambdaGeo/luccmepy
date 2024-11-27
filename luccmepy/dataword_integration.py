@@ -9,6 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def dw_query (dataset, query, geo_column = 'wkt', query_type='sparql'):
-    results = dw.query('landchangedata/dbcells', query, query_type)
+    results = dw.query(dataset, query, query_type)
     gdf = gpd.GeoDataFrame(results.dataframe, geometry=gpd.GeoSeries.from_wkt(results.dataframe[geo_column]))
     return gdf
