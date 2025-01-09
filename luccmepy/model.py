@@ -13,7 +13,7 @@ class Model(sim.Environment):
 
     def setup(self, *args, **kwargs):
         super().setup(*args, **kwargs) 
-        print("Configuração do ambiente personalizada foi realizada!")
+        #print("Configur do ambiente personalizada foi realizada!")
 
 
     def run (self, endTime=None):
